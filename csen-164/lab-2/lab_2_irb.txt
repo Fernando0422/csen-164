@@ -1,0 +1,474 @@
+(base) ➜  lab-2 irb
+
+irb(main):001> 11.class
+=> Integer
+irb(main):002> 11.even?
+=> false
+irb(main):003> 11.odd?
+=> true
+irb(main):004> 123456789012345678901234567890.class
+=> Integer
+irb(main):005> 11.next
+=> 12
+irb(main):006> 11.succ
+=> 12
+irb(main):007> 12.9.ceil
+=> 13
+irb(main):008> (-12.9).ceil
+=> -12
+irb(main):009> -12.9.abs
+=> 12.9
+irb(main):010> 12.9.floor
+=> 12
+irb(main):011> 12.9.to_i
+=> 12
+irb(main):012> 12.9.to_int
+=> 12
+irb(main):013> 10 ** 2
+=> 100
+irb(main):014> 12.9.round
+=> 13
+irb(main):015> 12.4.round
+=> 12
+irb(main):016> 3.14159.round(2)
+=> 3.14
+irb(main):017> 4.14159.round(4)
+=> 4.1416
+irb(main):018> a = 10
+=> 10
+irb(main):019> a.times { |x| puts x}
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+=> 10
+irb(main):020> a.times { |x| print x}
+0123456789=> 10
+irb(main):021* a.times do |x|
+irb(main):022*   puts x
+irb(main):023> end
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+=> 10
+irb(main):024> a.upto(20) {|x| puts x}
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+=> 10
+irb(main):025> a.upto(1) {|x| puts x}
+=> 10
+irb(main):026> b = 10..20
+=> 10..20
+irb(main):027> b.class
+=> Range
+irb(main):028> b.first
+=> 10
+irb(main):029> b.last
+=> 20
+irb(main):030> b.each { |x| puts x}
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+=> 10..20
+irb(main):031* b.each do |x|
+irb(main):032*   puts x
+irb(main):033> end
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+=> 10..20
+irb(main):034> puts ‘it’s a wonderful year’ # how to change this to print: it’s a wonderful year
+(irb):34:in '<main>': undefined local variable or method 'year’' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):035> puts ‘it’s a wonderful year’
+(irb):35:in '<main>': undefined local variable or method 'year’' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):036> puts "its a wonderful year"
+its a wonderful year
+=> nil
+irb(main):037> puts %q/it’s a wonderful year/
+it’s a wonderful year
+=> nil
+irb(main):038> puts %q/i spent #{a} years to get this degree/
+i spent #{a} years to get this degree
+=> nil
+irb(main):039> puts %Q/i spent #{a} years to get this degree/
+i spent 10 years to get this degree
+=> nil
+irb(main):040> puts %/i spent #{a} years to get this degree/
+i spent 10 years to get this degree
+=> nil
+irb(main):041> ‘i am ‘ + a.to_s + ‘ years old’
+<internal:kernel>:168:in 'Kernel#loop': (irb):41: syntax error found (SyntaxError)
+> 41 | ‘i am ‘ + a.to_s + ‘ years old’
+     |                      ^~~~~ unexpected local variable or method, expecting end-of-input
+
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):042> “i am#{a}years old”
+(irb):42:in '<main>': undefined local variable or method 'am' for main (NameError)
+Did you mean?  a
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):043> “i am ””#{a}”” years old
+(irb):43:in '<main>': undefined local variable or method '””' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):044> 'i am ' + a.to_s + ' years old'
+irb(main):045> 
+=> "i am 10 years old"
+irb(main):046> "i am #{a} years old"
+irb(main):047> 
+=> "i am 10 years old"
+irb(main):048> “i am” << a.to_s << “ years old”
+<internal:kernel>:168:in 'Kernel#loop': (irb):48: syntax error found (SyntaxError)
+> 48 | “i am” << a.to_s << “ years old”
+     |                       ^~~~~ unexpected local variable or method, expecting end-of-input
+
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):049> "i am" << a.to_s << " years old"
+irb(main):050> 
+=> "i am10 years old"
+irb(main):051> “cat” <=> “car”
+(irb):51:in '<main>': undefined local variable or method '“cat”' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):052> "cat" <=> "car"
+irb(main):053> 
+=> 1
+irb(main):054> “dog” <=> “fog”
+(irb):54:in '<main>': undefined local variable or method '“dog”' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):055> "dog" <=> "fog"
+irb(main):056> 
+=> -1
+irb(main):057> print each char in“abcdefghijklmnopqrstuvwxyz” in a separate line 
+<internal:kernel>:168:in 'Kernel#loop': (irb):57: syntax errors found (SyntaxError)
+> 57 | ... in a separate line
+     |     ^~ unexpected 'in', ignoring it
+     |     ^~ unexpected 'in', expecting end-of-input
+
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):058> "abcdefghijklmnopqrstuvwxyz".each_char { |char| puts char }
+irb(main):059> 
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+=> "abcdefghijklmnopqrstuvwxyz"
+irb(main):060> ["apple", “banana”, ”orange”].include?("cherry")
+(irb):60:in '<main>': undefined local variable or method '“banana”' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):061> ["apple", "banana", "orange"].include?("cherry")
+irb(main):062> 
+=> false
+irb(main):063> [“Hello”, “from”, “the”, “other”, “side”].join
+(irb):63:in '<main>': undefined local variable or method '“Hello”' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):064> ["Hello", "from", "the", "other", "side"].join
+irb(main):065> 
+=> "Hellofromtheotherside"
+irb(main):066> [“Hello”, “from”, “the”, “other”, “side”].join(“ “)
+(irb):66:in '<main>': undefined local variable or method '“Hello”' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):067> ["Hello", "from", "the", "other", "side"].join(" ")
+irb(main):068> 
+=> "Hello from the other side"
+irb(main):069> [“Hello”, “from”, “the”, “other”, “side”].join(“-“)
+(irb):69:in '<main>': undefined local variable or method '“Hello”' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):070> ["Hello", "from", "the", "other", "side"].join("-")
+irb(main):071> 
+=> "Hello-from-the-other-side"
+irb(main):072> str = “capital”
+(irb):72:in '<main>': undefined local variable or method '“capital”' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):073> str = "capital"
+irb(main):074> 
+=> "capital"
+irb(main):075> str.upcase
+=> "CAPITAL"
+irb(main):076> str.capitalize
+=> "Capital"
+irb(main):077> str.capitalize!
+=> "Capital"
+irb(main):078> str.upcase!
+=> "CAPITAL"
+irb(main):079> aBcDeFg.swapcase
+(irb):79:in '<main>': undefined local variable or method 'aBcDeFg' for main (NameError)
+	from <internal:kernel>:168:in 'Kernel#loop'
+	from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+	from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+irb(main):080> puts "aBcDeFg".swapcase!
+AbCdEfG
+=> nil
+irb(main):081> p "abcde".chars
+["a", "b", "c", "d", "e"]
+=> ["a", "b", "c", "d", "e"]
+irb(main):082> p ['i', 'love', 'you'].join
+"iloveyou"
+=> "iloveyou"
+irb(main):083> p ['i', 'love', 'you'].join(';')
+"i;love;you"
+=> "i;love;you"
+irb(main):084> arr = %w{d b e f z h a l a b e a z m}
+irb(main):085> 
+=> ["d", "b", "e", "f", "z", "h", "a", "l", "a", "b", "e", "a", "z", "m"]
+irb(main):086> p arr
+["d", "b", "e", "f", "z", "h", "a", "l", "a", "b", "e", "a", "z", "m"]
+=> ["d", "b", "e", "f", "z", "h", "a", "l", "a", "b", "e", "a", "z", "m"]
+irb(main):087> p arr.shuffle                      
+["b", "l", "e", "f", "d", "a", "a", "m", "a", "e", "z", "h", "b", "z"]
+=> ["b", "l", "e", "f", "d", "a", "a", "m", "a", "e", "z", "h", "b", "z"]
+irb(main):088> p arr
+["d", "b", "e", "f", "z", "h", "a", "l", "a", "b", "e", "a", "z", "m"]
+=> ["d", "b", "e", "f", "z", "h", "a", "l", "a", "b", "e", "a", "z", "m"]
+irb(main):089> arr.shuffle!
+=> ["h", "m", "b", "e", "a", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+irb(main):090> p arr
+["h", "m", "b", "e", "a", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+=> ["h", "m", "b", "e", "a", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+irb(main):091> p arr.slice(4)
+"a"
+=> "a"
+irb(main):092> p arr
+["h", "m", "b", "e", "a", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+=> ["h", "m", "b", "e", "a", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+irb(main):093> p arr.slice!(4)
+"a"
+=> "a"
+irb(main):094> p arr
+["h", "m", "b", "e", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+=> ["h", "m", "b", "e", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+irb(main):095> p arr.sort
+["a", "a", "b", "b", "d", "e", "e", "f", "h", "l", "m", "z", "z"]
+=> ["a", "a", "b", "b", "d", "e", "e", "f", "h", "l", "m", "z", "z"]
+irb(main):096> p arr                              
+["h", "m", "b", "e", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+=> ["h", "m", "b", "e", "f", "l", "z", "z", "b", "a", "d", "a", "e"]
+irb(main):097> arr.sort!
+=> ["a", "a", "b", "b", "d", "e", "e", "f", "h", "l", "m", "z", "z"]
+irb(main):098> p arr
+["a", "a", "b", "b", "d", "e", "e", "f", "h", "l", "m", "z", "z"]
+=> ["a", "a", "b", "b", "d", "e", "e", "f", "h", "l", "m", "z", "z"]
+irb(main):099> p arr.uniq
+["a", "b", "d", "e", "f", "h", "l", "m", "z"]
+=> ["a", "b", "d", "e", "f", "h", "l", "m", "z"]
+irb(main):100> p arr
+["a", "a", "b", "b", "d", "e", "e", "f", "h", "l", "m", "z", "z"]
+=> ["a", "a", "b", "b", "d", "e", "e", "f", "h", "l", "m", "z", "z"]
+irb(main):101> arr.uniq!
+=> ["a", "b", "d", "e", "f", "h", "l", "m", "z"]
+irb(main):102> p arr
+["a", "b", "d", "e", "f", "h", "l", "m", "z"]
+=> ["a", "b", "d", "e", "f", "h", "l", "m", "z"]
+irb(main):103> p arr.reverse
+["z", "m", "l", "h", "f", "e", "d", "b", "a"]
+=> ["z", "m", "l", "h", "f", "e", "d", "b", "a"]
+irb(main):104> p arr
+["a", "b", "d", "e", "f", "h", "l", "m", "z"]
+=> ["a", "b", "d", "e", "f", "h", "l", "m", "z"]
+irb(main):105> arr.reverse!                       
+=> ["z", "m", "l", "h", "f", "e", "d", "b", "a"]
+irb(main):106> p arr                              
+["z", "m", "l", "h", "f", "e", "d", "b", "a"]
+=> ["z", "m", "l", "h", "f", "e", "d", "b", "a"]
+irb(main):107> snowy_owl = { :type => "Bird", :diet => "Carnivore", :life_span => "12 years" }
+irb(main):108> 
+=> {type: "Bird", diet: "Carnivore", life_span: "12 years"}
+irb(main):109> p snowy_owl[:type]                 
+"Bird"
+=> "Bird"
+irb(main):110> snowy_owl[:weight] = "0.5 ounces"
+=> "0.5 ounces"
+irb(main):111> puts snowy_owl                     
+{type: "Bird", diet: "Carnivore", life_span: "12 years", weight: "0.5 ounces"}
+=> nil
+irb(main):112> puts snowy_owl.keys
+type
+diet
+life_span
+weight
+=> nil
+irb(main):113> puts snowy_owl.values              
+Bird
+Carnivore
+12 years
+0.5 ounces
+=> nil
+irb(main):114> p snowy_owl.has_key?(:diet)        
+true
+=> true
+irb(main):115> p snowy_owl.has_value?("Bird")     
+true
+=> true
+irb(main):116> puts "Key/Value Pairs:"
+irb(main):117> 
+Key/Value Pairs:
+=> nil
+irb(main):118> puts "Key/Value Pairs:"
+irb(main):119* snowy_owl.each do |key, value|
+irb(main):120* puts "#{key}: #{value}"
+irb(main):121*   
+irb(main):122> end
+Key/Value Pairs:
+type: Bird
+diet: Carnivore
+life_span: 12 years
+weight: 0.5 ounces
+=> {type: "Bird", diet: "Carnivore", life_span: "12 years", weight: "0.5 ounces"}
+irb(main):123> puts "Keys:"
+irb(main):124> 
+Keys:
+=> nil
+irb(main):125* snowy_owl.each_key do |key|
+irb(main):126*   puts key
+irb(main):127> end
+type
+diet
+life_span
+weight
+=> {type: "Bird", diet: "Carnivore", life_span: "12 years", weight: "0.5 ounces"}
+irb(main):128> puts "Values:"
+irb(main):129> 
+Values:
+=> nil
+irb(main):130* snowy_owl.each_value do |value|
+irb(main):131*   puts value
+irb(main):132> end
+Bird
+Carnivore
+12 years
+0.5 ounces
+=> {type: "Bird", diet: "Carnivore", life_span: "12 years", weight: "0.5 ounces"}
+irb(main):133> text = "Hello;this;is;a;semicolon;separated;list"
+irb(main):134> words = text.split(';')
+irb(main):135> puts words
+irb(main):136> 
+Hello
+this
+is
+a
+semicolon
+separated
+list
+=> nil
+irb(main):137> text = "Hello, this is a test. Let's split by spaces and remove punctuation!"
+irb(main):138> 
+=> "Hello, this is a test. Let's split by spaces and remove punctuation!"
+irb(main):139> words = text.tr(',.', ' ')
+irb(main):140> 
+=> "Hello  this is a test  Let's split by spaces and remove punctuation!"
+irb(main):141> puts words.split(' ')
+irb(main):142> 
+Hello
+this
+is
+a
+test
+Let's
+split
+by
+spaces
+and
+remove
+punctuation!
+=> nil
+irb(main):143> 
+
