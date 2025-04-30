@@ -1,0 +1,9 @@
+<h2><%= @student[:name] %></h2>
+<img src="<%= @student[:image] %>" alt="<%= @student[:name] %>">
+
+<ul>
+  <li><strong>ID#:</strong> <%= @student[:student_id] %></li>
+  <li><strong>GPA:</strong>    <%= @student[:gpa] %></li>
+</ul>
+
+<form action="/students" method="get"><button>Back</button></form>

@@ -1,0 +1,19 @@
+<h2>Search the Roster</h2>
+<form action="/search" method="post">
+  <input type="text" name="name" placeholder="Enter name…" value="<%= @query %>">
+  <button>🔍 Search</button>
+</form>
+
+<% if defined?(@results) %>
+  <h3>Results for “<%= @query %>”:</h3>
+  <% if @results.any? %>
+    <ul>
+      <% @results.each do |s| %>
+        <li><a href="/students/<%= s[:id] %>"><%= s[:name] %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No matches found.</p>
+  <% end %>
+  <form action="/" method="get"><button>Back</button></form>
+<% end %>

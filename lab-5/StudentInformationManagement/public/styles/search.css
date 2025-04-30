@@ -1,0 +1,9 @@
+/* search.css */
+form {
+    margin-bottom: 1em;
+  }
+  input[type="text"] {
+    padding: 0.5em;
+    width: 200px;
+  }
+  

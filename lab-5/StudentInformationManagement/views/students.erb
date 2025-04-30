@@ -1,0 +1,13 @@
+<h2>Student Roster</h2>
+<ul class="grid">
+  <% @students.each do |s| %>
+    <li>
+      <a href="/students/<%= s[:id] %>">
+        <img src="<%= s[:image] %>" alt="<%= s[:name] %>">
+        <span><%= s[:name] %></span>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/" method="get"><button>Back</button></form>

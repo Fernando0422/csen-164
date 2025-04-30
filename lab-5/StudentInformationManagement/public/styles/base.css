@@ -1,0 +1,35 @@
+/* base.css */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
+  }
+  header {
+    background: #222;
+    color: #fff;
+    padding: 1em;
+  }
+  header h1 {
+    margin: 0;
+  }
+  nav a {
+    color: #ffd700;
+    margin-right: 1em;
+    text-decoration: none;
+  }
+  main {
+    padding: 2em;
+  }
+  button {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+  

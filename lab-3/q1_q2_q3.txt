@@ -1,0 +1,182 @@
+1. 
+
+(base) **➜  lab-3** irb
+
+irb(main):001* def **m**(a, *b, **c)
+
+irb(main):002*   p [a, b, c]
+
+irb(main):003> end
+
+=> :m
+
+irb(main):004> m[**10**]
+
+(irb):1:in 'm': **wrong number of arguments (given 0, expected 1+) (ArgumentError)**
+
+from (irb):4:in '<main>'
+
+from <internal:kernel>:168:in 'Kernel#loop'
+
+from /opt/homebrew/Cellar/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/irb-1.14.3/exe/irb:9:in '<top (required)>'
+
+from /opt/homebrew/opt/ruby/bin/irb:25:in 'Kernel#load'
+
+from /opt/homebrew/opt/ruby/bin/irb:25:in '<main>'
+
+irb(main):005> m(**10**)
+
+[10, [], {}]
+
+=> [**10**, [], {}]
+
+irb(main):006> m(**10**, **20**, **30**)
+
+[10, [20, 30], {}]
+
+=> [**10**, [**20**, **30**], {}]
+
+irb(main):007> m(**10**, **20**, **30**, d: **40**, e: **50**)
+
+[10, [20, 30], {d: 40, e: 50}]
+
+=> [**10**, [**20**, **30**], {d: **40**, e: **50**}]
+
+irb(main):008> m(**10**, d: **40**, e: **50**)
+
+[10, [], {d: 40, e: 50}]
+
+=> [**10**, [], {d: **40**, e: **50**}]
+
+irb(main):009> opts = {d: **40**, e: **50**}
+
+=> {d: **40**, e: **50**}
+
+irb(main):010> m(**10**, opts, f: **60**)
+
+[10, [{d: 40, e: 50}], {f: 60}]
+
+=> [**10**, [{d: **40**, e: **50**}], {f: **60**}]
+
+irb(main):011> m(**10**, **opts, f: **60**)
+
+[10, [], {d: 40, e: 50, f: 60}]
+
+=> [**10**, [], {d: **40**, e: **50**, f: **60**}]
+
+irb(main):012>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. 
+
+(base) **➜  lab-3** irb
+
+irb(main):001* def **foo**(key:, **everything_else)
+
+irb(main):002* [key, everything_else]
+
+irb(main):003> end
+
+=> :foo
+
+irb(main):004> foo(key: **"**value**"**, other_key: **"**other_value**"**)
+
+=> [**"**value**"**, {other_key: **"**other_value**"**}]
+
+irb(main):005>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. 
+
+(base) **➜  lab-3** irb
+
+irb(main):001* def **testing**(a, b = **1**, *c, d: **1**, **x)
+
+irb(main):002* p a,b,c,d,x
+
+irb(main):003> end
+
+=> :testing
+
+irb(main):004> testing(**1**,**2**,**3**,**4**,**5**,**6**,a:**1**, b:**2**)
+
+1
+
+2
+
+[3, 4, 5, 6]
+
+1
+
+{a: 1, b: 2}
+
+=> [**1**, **2**, [**3**, **4**, **5**, **6**], **1**, {a: **1**, b: **2**}]
+
+irb(main):005> testing(**'**a**'**, **'**b**'**, **'**c**'**, **'**d**'**, **'**e**'**, d: **2**, x: **1**)
+
+"a"
+
+"b"
+
+["c", "d", "e"]
+
+2
+
+{x: 1}
+
+=> [**"**a**"**, **"**b**"**, [**"**c**"**, **"**d**"**, **"**e**"**], **2**, {x: **1**}]
+
+irb(main):006> testing(**'**a**'**, **'**b**'**, **'**c**'**, **'**d**'**, **'**e**'**, d: **2**, x: **1**, y:**2**, z:**3**)
+
+"a"
+
+"b"
+
+["c", "d", "e"]
+
+2
+
+{x: 1, y: 2, z: 3}
+
+=> [**"**a**"**, **"**b**"**, [**"**c**"**, **"**d**"**, **"**e**"**], **2**, {x: **1**, y: **2**, z: **3**}]
+
+irb(main):007>

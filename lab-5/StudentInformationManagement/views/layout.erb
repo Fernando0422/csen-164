@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fashion School Roster</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <% if @custom_css %>
+    <link rel="stylesheet" href="/styles/<%= @custom_css %>">
+  <% end %>
+</head>
+<body>
+  <header>
+    <h1>🏫 Fashion School</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/students">Roster</a>
+      <a href="/search">Search</a>
+      <a href="/count">Count</a>
+    </nav>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+</body>
+</html>
